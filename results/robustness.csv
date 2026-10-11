@@ -1,0 +1,17 @@
+scenario,test,bridges,top4,easy_boy_rank,nof_studio_rank
+Baseline,base,18,"easy boy (2 channels), โรงหนังจีน CCAP, Ging Enjoy, พ่อลูกเล่นเกม",1.0,18.0
+Baseline,re-uploads deduplicated,18,"easy boy (2 channels), โรงหนังจีน CCAP, Ging Enjoy, พ่อลูกเล่นเกม",1.0,18.0
+Baseline,without สนุก,18,"easy boy (2 channels), โรงหนังจีน CCAP, พ่อลูกเล่นเกม, Caracat",1.0,13.0
+Baseline,>=2 videos per edge,4,"easy boy (2 channels), Ging Enjoy, Bie The Ska, Nof studio",1.0,4.0
+Baseline,>=3 videos per edge,2,"easy boy (2 channels), Nof studio",1.0,2.0
+Baseline,no สนุก + dedup + >=2,4,"easy boy (2 channels), Bie The Ska, Nof studio, Ging Enjoy",1.0,3.0
+Baseline,leave-one-video-out: easy boy (2 channels),still a bridge in 8/8 runs,worst rank 2,,
+Baseline,leave-one-video-out: Nof studio,still a bridge in 5/5 runs,worst rank 18,,
+A (+OSx),base,26,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, โรงหนังจีน CCAP",1.0,24.0
+A (+OSx),re-uploads deduplicated,26,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, โรงหนังจีน CCAP",1.0,24.0
+A (+OSx),without สนุก,23,"easy boy (2 channels), พ่อลูกเล่นเกม, โรงหนังจีน CCAP, Caracat",1.0,15.0
+A (+OSx),>=2 videos per edge,4,"easy boy (2 channels), พ่อลูกเล่นเกม, เรียงเรื่องลั่น, Nof studio",1.0,4.0
+A (+OSx),>=3 videos per edge,3,"easy boy (2 channels), เรียงเรื่องลั่น, Nof studio",1.0,3.0
+A (+OSx),no สนุก + dedup + >=2,4,"easy boy (2 channels), พ่อลูกเล่นเกม, Nof studio, เรียงเรื่องลั่น",1.0,3.0
+A (+OSx),leave-one-video-out: easy boy (2 channels),still a bridge in 8/8 runs,worst rank 2,,
+A (+OSx),leave-one-video-out: Nof studio,still a bridge in 5/5 runs,worst rank 24,,

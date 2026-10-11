@@ -1,0 +1,316 @@
+{
+ "kind": "youtube#videoCategoryListResponse",
+ "etag": "KcQxagD6l1ZSlh-LZXxzgiQY0zU",
+ "items": [
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "E_WNSulV4gBklLZaiDFxf1-A2Xw",
+   "id": "1",
+   "snippet": {
+    "title": "ภาพยนตร์และแอนิเมชัน",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "PdhEjO4dwS4wTV5udOU5KGGbBfU",
+   "id": "2",
+   "snippet": {
+    "title": "ยานยนต์และพาหนะ",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "P85wkizjFcsEjNFxli6HZUWgeyI",
+   "id": "10",
+   "snippet": {
+    "title": "เพลง",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "LJI7Kl-pd_RUth9P6B_2gX2XY3E",
+   "id": "15",
+   "snippet": {
+    "title": "สัตว์เลี้ยงและสัตว์",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "Ax91V38y1VQc9q0sKOrRwV86XeE",
+   "id": "17",
+   "snippet": {
+    "title": "กีฬา",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "8ygrmP0GOWPt4lz6LpbRhJ_6WhE",
+   "id": "18",
+   "snippet": {
+    "title": "ภาพยนตร์สั้น",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "dxN68UyfhwevEpzX4NB3_0dJdHI",
+   "id": "19",
+   "snippet": {
+    "title": "ท่องเที่ยวและกิจกรรม",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "Lbvkx0uwtHvw0XkR7YLIkpIEqns",
+   "id": "20",
+   "snippet": {
+    "title": "เกม",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "tIMdO3DWxjQmLVBQJTvIMamnZwQ",
+   "id": "21",
+   "snippet": {
+    "title": "วิดีโอบล็อก",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "jfgSb94eabQNkNAZM-8VCa_ACq4",
+   "id": "22",
+   "snippet": {
+    "title": "บุคคลและบล็อก",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "ox43WmptTSTJlxkTBZdJvWRv_dI",
+   "id": "23",
+   "snippet": {
+    "title": "ตลก",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "0daGEvsQnV2WtFgzHQQDDQ4FgBc",
+   "id": "24",
+   "snippet": {
+    "title": "บันเทิง",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "W4GuSMAQKtR8tbgx093dBp9unIo",
+   "id": "25",
+   "snippet": {
+    "title": "ข่าวและการเมือง",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "12DxuJtLbBIagJJj6nE1VVW509c",
+   "id": "26",
+   "snippet": {
+    "title": "ฮาวทูและสไตล์",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "409jTHikXfrztolJzSJ3NkG6H-M",
+   "id": "27",
+   "snippet": {
+    "title": "การศึกษา",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "eoz1t60rKAKnjyBK7b-WunNO3Pc",
+   "id": "28",
+   "snippet": {
+    "title": "วิทยาศาสตร์และเทคโนโลยี",
+    "assignable": true,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "RJ4KTQAk7LLfP1Jn8E_cDgK3LPg",
+   "id": "30",
+   "snippet": {
+    "title": "ภาพยนตร์",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "8f0w318C_CUsvfiUkB8X54ETMDo",
+   "id": "31",
+   "snippet": {
+    "title": "อนิเมะ/แอนิเมชัน",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "k17KtL079cmY0NaDF9CcThZmS2Y",
+   "id": "32",
+   "snippet": {
+    "title": "แอ็คชัน/การผจญภัย",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "tU5M69nVGzJghBHsoP4LugRdx9M",
+   "id": "33",
+   "snippet": {
+    "title": "คลาสสิก",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "rv0o_uJ2fzXUXzEcfIcpBVBYV2Q",
+   "id": "34",
+   "snippet": {
+    "title": "ตลก",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "N1rhjK8Q9wJWmQGBRzc8hZKFT5E",
+   "id": "35",
+   "snippet": {
+    "title": "สารคดี",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "EhemVolxOZFeMHEi-EiGK3MhjWg",
+   "id": "36",
+   "snippet": {
+    "title": "ดราม่า",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "-9QjEwyqcL6FaQor0LIHLk22m4U",
+   "id": "37",
+   "snippet": {
+    "title": "ครอบครัว",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "LFm0k8Z5ppvB9BVmN4fQnMiFNLw",
+   "id": "38",
+   "snippet": {
+    "title": "ต่างประเทศ",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "lENa47jDSDr_h_8aq3vPOjcBaK8",
+   "id": "39",
+   "snippet": {
+    "title": "สยองขวัญ",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "o8SVmhl4JjtzqN2rGd0yCm07P7E",
+   "id": "40",
+   "snippet": {
+    "title": "ไซไฟ/แฟนตาซี",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "Q9AeZpVj6OabN5s7vO1vDOhO5Gk",
+   "id": "41",
+   "snippet": {
+    "title": "ระทึกขวัญ",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "MXWiH40swe5PYqifL_ajSRuUuXQ",
+   "id": "42",
+   "snippet": {
+    "title": "หนังสั้น",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "KO9oVMG7WolizcRykeSgMippwxA",
+   "id": "43",
+   "snippet": {
+    "title": "รายการ",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  },
+  {
+   "kind": "youtube#videoCategory",
+   "etag": "AkPCm7zXzI-Mw8syp0IaksK09nY",
+   "id": "44",
+   "snippet": {
+    "title": "ตัวอย่าง",
+    "assignable": false,
+    "channelId": "UCBR8-60-B28hp2BmDPdntcQ"
+   }
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+  "keywords": 34,
+  "edges": 105,
+  "slots": 836,
+  "channels": 351,
+  "communities": 8,
+  "modularity": 0.577,
+  "true_owned_slots": 5,
+  "true_group_slots_with_osx": 77,
+  "between_community_jaccard": {
+    "Gaming & comedy / Movie recap": 0.57,
+    "News / Storytelling": 0.33,
+    "Gaming & comedy / News": 0.19,
+    "Gaming & comedy / Storytelling": 0.06,
+    "Gaming & comedy / Music": 0.06
+  },
+  "rank_of_สนุก": {
+    "raw": 2,
+    "jaccard": 6
+  }
+}
