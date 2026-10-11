@@ -7,6 +7,13 @@ Baseline,>=3 videos per edge,2,"easy boy (2 channels), Nof studio",1.0,2.0
 Baseline,no สนุก + dedup + >=2,4,"easy boy (2 channels), Bie The Ska, Nof studio, Ging Enjoy",1.0,3.0
 Baseline,leave-one-video-out: easy boy (2 channels),still a bridge in 8/8 runs,worst rank 2,,
 Baseline,leave-one-video-out: Nof studio,still a bridge in 5/5 runs,worst rank 18,,
+Baseline,anchor removed: Y893_l4u5Jo,8,"easy boy (2 channels), โรงหนังจีน CCAP, พ่อลูกเล่นเกม, แมวสุขสันต์ ทันข่าว",1.0,
+Baseline,anchor removed: 0-eAqNrJI-w,18,"easy boy (2 channels), โรงหนังจีน CCAP, Ging Enjoy, พ่อลูกเล่นเกม",1.0,18.0
+Baseline,anchor removed: 9lSFZAgwMFI,18,"easy boy (2 channels), โรงหนังจีน CCAP, Ging Enjoy, พ่อลูกเล่นเกม",1.0,18.0
+Baseline,anchor removed: Lvn08OR3FBk,15,"easy boy (2 channels), โรงหนังจีน CCAP, Ging Enjoy, Caracat",1.0,15.0
+Baseline,anchor removed: both True4U uploads,1,แมวสุขสันต์ ทันข่าว,,
+Baseline,window top 10 (36 keywords),6,"easy boy (2 channels), รวมมุกฮ่า หนังตะลุง (คนใต้ใจเต็ม), โรงหนังจีน CCAP, Menu หนังสั้นจีน",1.0,
+Baseline,window top 50 (33 keywords),56,"easy boy (2 channels), โรงหนังจีน CCAP, Caracat, พ่อลูกเล่นเกม",1.0,29.0
 A (+OSx),base,26,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, โรงหนังจีน CCAP",1.0,24.0
 A (+OSx),re-uploads deduplicated,26,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, โรงหนังจีน CCAP",1.0,24.0
 A (+OSx),without สนุก,23,"easy boy (2 channels), พ่อลูกเล่นเกม, โรงหนังจีน CCAP, Caracat",1.0,15.0
@@ -15,3 +22,10 @@ A (+OSx),>=3 videos per edge,3,"easy boy (2 channels), เรียงเรื�
 A (+OSx),no สนุก + dedup + >=2,4,"easy boy (2 channels), พ่อลูกเล่นเกม, Nof studio, เรียงเรื่องลั่น",1.0,3.0
 A (+OSx),leave-one-video-out: easy boy (2 channels),still a bridge in 8/8 runs,worst rank 2,,
 A (+OSx),leave-one-video-out: Nof studio,still a bridge in 5/5 runs,worst rank 24,,
+A (+OSx),anchor removed: Y893_l4u5Jo,21,"easy boy (2 channels), พ่อลูกเล่นเกม, Ging Enjoy, โรงหนังจีน CCAP",1.0,
+A (+OSx),anchor removed: 0-eAqNrJI-w,26,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, โรงหนังจีน CCAP",1.0,24.0
+A (+OSx),anchor removed: 9lSFZAgwMFI,26,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, โรงหนังจีน CCAP",1.0,24.0
+A (+OSx),anchor removed: Lvn08OR3FBk,27,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, โรงหนังจีน CCAP",1.0,25.0
+A (+OSx),anchor removed: both True4U uploads,19,"easy boy (2 channels), Ging Enjoy, พ่อลูกเล่นเกม, แมวสุขสันต์ ทันข่าว",1.0,
+A (+OSx),window top 10 (36 keywords),8,"easy boy (2 channels), รวมมุกฮ่า หนังตะลุง (คนใต้ใจเต็ม), โรงหนังจีน CCAP, Menu หนังสั้นจีน",1.0,
+A (+OSx),window top 50 (33 keywords),66,"easy boy (2 channels), พ่อลูกเล่นเกม, ohana clip, Ging Enjoy",1.0,32.0

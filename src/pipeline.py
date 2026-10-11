@@ -13,7 +13,8 @@ Steps
      and >= 1 where none does ("gap"); ranked by keywords, True-visible keywords,
      communities (all descending).
   4. Robustness: re-uploads deduplicated, without the generic keyword "สนุก",
-     >= 2 / >= 3 videos per creator-keyword edge, leave-one-video-out.
+     >= 2 / >= 3 videos per creator-keyword edge, leave-one-video-out (creator videos),
+     anchor removal (each True-owned result, then both True4U uploads), top-10 / top-50 windows.
   5. Scenarios: Baseline = True-owned channels; A = + OSx Network creators
      zbing z. and SpriteDer SPD (True Digital / Online Station contacts in
      their channel descriptions).
@@ -205,6 +206,21 @@ def main():
             grid.append({"scenario": sname, "test": f"leave-one-video-out: {title}",
                          "bridges": f"still a bridge in {sum(k is not None for k in kept)}/{len(vids)} runs",
                          "top4": f"worst rank {max(k or 999 for k in kept)}"})
+        # anchor sensitivity: remove each True-owned result, then both uploads of the True4U film
+        true_videos = list(r[r.channelId.isin(TRUE_OWNED)].videoId.unique())
+        true4u = list(r[r.channelId == "UCu2sn1JnlYkN_XQCeBcKP5A"].videoId.unique())
+        for name, drop in [(f"anchor removed: {x}", [x]) for x in true_videos] + [("anchor removed: both True4U uploads", true4u)]:
+            b, _ = bridges(r, chdf, tids, drop_videos=drop)
+            grid.append({"scenario": sname, "test": name, "bridges": len(b), "top4": ", ".join(b.title.head(4)),
+                         "easy_boy_rank": rank_of(b, "easy boy (2 channels)"), "nof_studio_rank": rank_of(b, "Nof studio")})
+        # co-occurrence window: top 10 / 25 / 50
+        for top in (10, 50):
+            rw = corpus(rows, top)
+            rw.loc[rw.channelId == EASY_BOY_X2, "channelId"] = EASY_BOY
+            b, _ = bridges(rw, chdf, tids)
+            grid.append({"scenario": sname, "test": f"window top {top} ({rw.keyword.nunique()} keywords)", "bridges": len(b),
+                         "top4": ", ".join(b.title.head(4)), "easy_boy_rank": rank_of(b, "easy boy (2 channels)"),
+                         "nof_studio_rank": rank_of(b, "Nof studio")})
     pd.DataFrame(grid).to_csv(RES / "robustness.csv", index=False)
     bridges(r, chdf, TRUE_OWNED)[0].to_csv(RES / "bridges_baseline.csv")
 

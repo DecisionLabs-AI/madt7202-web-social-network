@@ -1,4 +1,4 @@
-# Which creators should TrueID pilot to reach comedy and movie-recap audiences?
+# Which external creators should TrueID pilot to test comedy and movie-recap expansion?
 
 MADT 7202 Web and Social Network Analytics · Mid-term applied case (NIDA)
 
@@ -33,7 +33,8 @@ collected; a fresh pull writes to `data/fresh/` and will not reproduce the repor
    ordered by keywords, True-visible keywords, communities (all descending). easy boy's two channels are
    merged (easy boy X2 describes itself as the side channel); broadcasters and rival platforms are excluded.
 4. **Robustness:** re-uploads deduplicated, without "สนุก", ≥ 2 and ≥ 3 videos per creator–keyword edge,
-   leave-one-video-out.
+   leave-one-video-out, anchor removal (each True-owned result, then both uploads of the True4U film),
+   and top-10 / top-50 windows against the top-25 base.
 5. **Scenarios:** Baseline counts True-owned channels only; Scenario A also counts OSx Network creators
    zbing z. and SpriteDer SPD, whose channel descriptions list True Digital / Online Station contacts.
 
@@ -56,7 +57,7 @@ The figure needs a Thai-capable font (Thonburi on macOS, or Loma / Noto Sans Tha
 | "สนุก" centrality, raw count vs Jaccard | `results/weighting_raw_vs_jaccard.csv` |
 | Community sizes and views (figure labels) | `results/communities.csv` |
 | Top five creators by views, OSx flag | `results/top5_by_views.csv` |
-| Bridge ranking and every robustness test, Baseline and A | `results/robustness.csv`, `results/bridges_baseline.csv` |
+| Bridge ranking and every robustness test (incl. anchor removal, windows), Baseline and A | `results/robustness.csv`, `results/bridges_baseline.csv` |
 | Keywords and communities of easy boy, Nof studio, เรียงเรื่องลั่น, พ่อลูกเล่นเกม | `results/shortlist_detail.csv` |
 | Section 5 figure | `figures/network.png` |
 
