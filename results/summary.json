@@ -17,5 +17,17 @@
   "rank_of_สนุก": {
     "raw": 2,
     "jaccard": 6
+  },
+  "daily_stability": {
+    "snapshots": 5,
+    "easy_boy_rank1": {
+      "A (+OSx)": 5,
+      "Baseline": 4
+    },
+    "nof_studio_bridge": {
+      "A (+OSx)": 3,
+      "Baseline": 3
+    },
+    "true4u_film_present": 5
   }
 }

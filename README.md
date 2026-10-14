@@ -20,7 +20,8 @@ neighbourhoods adjacent to those where True-owned channels are visible, which on
 | Search | Each keyword: `regionCode=TH`, `relevanceLanguage=th`, top 50, videos published 13 Jul – 11 Oct 2026 |
 | Snapshot | Collected 11 Oct 2026: 2,000 search rows, 1,697 videos, 1,294 channels (`data/`) |
 
-Search rankings change daily, so the analysis runs on the saved snapshot. `src/collect.py` shows how it was
+Daily re-pulls of the same 40 keywords (`src/collect_daily.py`, 11–14 Oct) are in `data/daily/` and test
+whether the result holds over time. Search rankings change daily, so the analysis runs on saved snapshots. `src/collect.py` shows how it was
 collected; a fresh pull writes to `data/fresh/` and will not reproduce the report exactly.
 
 ## Method
@@ -35,6 +36,9 @@ collected; a fresh pull writes to `data/fresh/` and will not reproduce the repor
 4. **Robustness:** re-uploads deduplicated, without "สนุก", ≥ 2 and ≥ 3 videos per creator–keyword edge,
    leave-one-video-out, anchor removal (each True-owned result, then both uploads of the True4U film),
    and top-10 / top-50 windows against the top-25 base.
+6. **Stability over time:** the whole graph and bridge ranking re-run on every daily snapshot
+   (`results/daily_stability.csv`). The ≥ 80%-of-snapshots bar, the anchor, window and channel-merge tests,
+   and the exclusion of TVB Thailand (a broadcaster that surfaced on 13 Oct) were added after first results.
 5. **Scenarios:** Baseline counts True-owned channels only; Scenario A also counts OSx Network creators
    zbing z. and SpriteDer SPD, whose channel descriptions list True Digital / Online Station contacts.
 
@@ -59,13 +63,15 @@ The figure needs a Thai-capable font (Thonburi on macOS, or Loma / Noto Sans Tha
 | Top five creators by views, OSx flag | `results/top5_by_views.csv` |
 | Bridge ranking and every robustness test (incl. anchor removal, windows), Baseline and A | `results/robustness.csv`, `results/bridges_baseline.csv` |
 | Keywords and communities of easy boy, Nof studio, เรียงเรื่องลั่น, พ่อลูกเล่นเกม | `results/shortlist_detail.csv` |
+| Daily stability: easy boy #1 in 4/5 snapshots (5/5 with OSx), Nof studio a bridge in 3/5 | `results/daily_stability.csv`, `results/summary.json` |
 | Section 5 figure | `figures/network.png` |
 
 ## Layout
 
 ```
-data/        11 Oct 2026 API snapshot (JSON)
-src/         collect.py (data pull), pipeline.py (analysis), figure.py (section 5 figure)
+data/        11 Oct 2026 API snapshot (JSON); data/daily/ daily re-pulls
+src/         collect.py, collect_daily.py (data pulls), pipeline.py (analysis), figure.py (section 5 figure)
+scripts/     install_daily_cron.py
 results/     CSV and JSON outputs of pipeline.py
 figures/     network.png
 report/      the one-page report (PDF)

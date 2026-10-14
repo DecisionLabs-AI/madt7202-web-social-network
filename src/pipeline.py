@@ -54,6 +54,7 @@ NOT_CREATORS = {
     "เรื่องเล่าเช้านี้", "ข่าวช่อง8", "WorkpointOfficial", "AMARINTV : อมรินทร์ทีวี", "Thairath News - ข่าวไทยรัฐ",
     "Thai PBS", "ข่าวช่องวัน - one news", "ครอบครัวข่าว3", "iQIYI Movie Thai - Get the iQIYI APP",
     "พระนครฟิลม์ Phranakornfilm", "Sanook.com", "YOUKU พากย์ไทย-โหลดแอปตอนนี้",
+    "TVB Thailand",  # added 14 Oct after it appeared in a daily snapshot (broadcaster)
 }
 COMMUNITY_NAMES = {"มายคราฟ": "Gaming & comedy", "สรุปหนัง": "Movie recap", "ข่าว": "News", "เพลงใหม่": "Music",
                    "เล่าเรื่อง": "Storytelling", "freefire": "Free Fire", "rov": "RoV", "ตกปลา": "Fishing"}
@@ -61,11 +62,11 @@ THAI = re.compile("[฀-๿]")
 
 
 # ---------------------------------------------------------------- load
-def load():
-    rows = pd.DataFrame(json.load(open(DATA / "search_results.json"))["rows"])
-    videos = json.load(open(DATA / "videos.json"))
+def load(data_dir=DATA):
+    rows = pd.DataFrame(json.load(open(data_dir / "search_results.json"))["rows"])
+    videos = json.load(open(data_dir / "videos.json"))
     vdf = pd.DataFrame([{"videoId": v["id"], "views": int(v["statistics"].get("viewCount", 0))} for v in videos])
-    channels = json.load(open(DATA / "channels.json"))
+    channels = json.load(open(data_dir / "channels.json"))
     chdf = pd.DataFrame([{"channelId": c["id"], "title": c["snippet"]["title"],
                           "subs": int(c["statistics"].get("subscriberCount", 0) or 0),
                           "description": c["snippet"].get("description", "")} for c in channels]
@@ -141,6 +142,34 @@ def bridges(r, chdf, true_ids, support=1, drop_kw=(), dedup=False, drop_videos=(
 def rank_of(b, title):
     names = list(b.title)
     return names.index(title) + 1 if title in names else None
+
+
+# ---------------------------------------------------------------- stability over time
+def daily_stability():
+    """Re-run the base graph and bridge ranking on every snapshot: data/ plus data/daily/*/."""
+    snaps = [("2026-10-11 10:10 (base)", DATA)] + [
+        (p.name, p) for p in sorted((DATA / "daily").glob("*")) if (p / "search_results.json").exists()]
+    out = []
+    for name, path in snaps:
+        rows, chdf = load(path)
+        r = corpus(rows)
+        r.loc[r.channelId == EASY_BOY_X2, "channelId"] = EASY_BOY
+        if EASY_BOY in chdf.index:
+            chdf.loc[EASY_BOY, "title"] = "easy boy (2 channels)"
+        G = keyword_graph(r)
+        label, Q = communities(G)
+        link = max(between_community(G, label).items(), key=lambda x: x[1])
+        for sname, tids in {"Baseline": TRUE_OWNED, "A (+OSx)": {**TRUE_OWNED, **OSX}}.items():
+            b, _ = bridges(r, chdf, tids)
+            b3, _ = bridges(r, chdf, tids, support=3)
+            out.append({"snapshot": name, "scenario": sname, "keywords": G.number_of_nodes(), "edges": G.number_of_edges(),
+                        "true_owned_slots": int(r.channelId.isin(TRUE_OWNED).sum()),
+                        "true4u_slots": int((r.channelId == "UCu2sn1JnlYkN_XQCeBcKP5A").sum()),
+                        "strongest_link": " / ".join(link[0]), "strongest_link_jaccard": round(link[1], 2),
+                        "easy_boy_rank": rank_of(b, "easy boy (2 channels)"),
+                        "easy_boy_rank_3videos": rank_of(b3, "easy boy (2 channels)"),
+                        "nof_studio_rank": rank_of(b, "Nof studio"), "top3": ", ".join(b.title.head(3))})
+    return pd.DataFrame(out)
 
 
 # ---------------------------------------------------------------- main
@@ -233,6 +262,16 @@ def main():
                            "true_visible": k in set(r[r.channelId.isin(TRUE_OWNED)].keyword)})
     pd.DataFrame(detail).to_csv(RES / "shortlist_detail.csv", index=False)
 
+    # stability across the base snapshot and the daily re-pulls (src/collect_daily.py)
+    stab = daily_stability()
+    stab.to_csv(RES / "daily_stability.csv", index=False)
+    summary["daily_stability"] = {
+        "snapshots": len(stab) // 2,
+        "easy_boy_rank1": {s: int((g.easy_boy_rank == 1).sum()) for s, g in stab.groupby("scenario")},
+        "nof_studio_bridge": {s: int(g.nof_studio_rank.notna().sum()) for s, g in stab.groupby("scenario")},
+        "true4u_film_present": int((stab[stab.scenario == "Baseline"].true4u_slots > 0).sum()),
+    }
+    print(stab.to_string())
     json.dump(summary, open(RES / "summary.json", "w"), ensure_ascii=False, indent=2)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     print(pd.DataFrame(grid).to_string())
