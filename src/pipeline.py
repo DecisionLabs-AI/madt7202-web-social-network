@@ -139,6 +139,19 @@ def bridges(r, chdf, true_ids, support=1, drop_kw=(), dedup=False, drop_videos=(
     return b.sort_values(["n_kw", "true_visible_kw", "n_comm"], ascending=False), true_kw
 
 
+def betweenness_ranks(r, chdf, exclude_ids):
+    """Standard check on the custom bridge rule: betweenness centrality of channels in the
+    keyword-channel bipartite graph, ranked among external creators only."""
+    B = nx.Graph()
+    for (cid, kw) in r[["channelId", "keyword"]].drop_duplicates().itertuples(index=False):
+        B.add_edge("c:" + cid, "k:" + kw)
+    bc = nx.betweenness_centrality(B, normalized=True)
+    t = pd.Series({n[2:]: v for n, v in bc.items() if n.startswith("c:")}).rename("betweenness").to_frame()
+    t = t.join(chdf[["title"]])
+    t = t[~t.index.isin(exclude_ids) & ~t.title.isin(NOT_CREATORS)].sort_values("betweenness", ascending=False)
+    return t
+
+
 def rank_of(b, title):
     names = list(b.title)
     return names.index(title) + 1 if title in names else None
@@ -159,6 +172,7 @@ def daily_stability():
         G = keyword_graph(r)
         label, Q = communities(G)
         link = max(between_community(G, label).items(), key=lambda x: x[1])
+        btw = betweenness_ranks(r, chdf, {**TRUE_OWNED, **OSX})
         for sname, tids in {"Baseline": TRUE_OWNED, "A (+OSx)": {**TRUE_OWNED, **OSX}}.items():
             b, _ = bridges(r, chdf, tids)
             b3, _ = bridges(r, chdf, tids, support=3)
@@ -168,7 +182,10 @@ def daily_stability():
                         "strongest_link": " / ".join(link[0]), "strongest_link_jaccard": round(link[1], 2),
                         "easy_boy_rank": rank_of(b, "easy boy (2 channels)"),
                         "easy_boy_rank_3videos": rank_of(b3, "easy boy (2 channels)"),
-                        "nof_studio_rank": rank_of(b, "Nof studio"), "top3": ", ".join(b.title.head(3))})
+                        "nof_studio_rank": rank_of(b, "Nof studio"), "top3": ", ".join(b.title.head(3)),
+                        "easy_boy_betweenness_rank_external": rank_of(btw, "easy boy (2 channels)"),
+                        "nof_studio_betweenness_rank_external": rank_of(btw, "Nof studio"),
+                        "top_betweenness_external": ", ".join(btw.title.head(3))})
     return pd.DataFrame(out)
 
 
@@ -270,6 +287,9 @@ def main():
         "easy_boy_rank1": {s: int((g.easy_boy_rank == 1).sum()) for s, g in stab.groupby("scenario")},
         "nof_studio_bridge": {s: int(g.nof_studio_rank.notna().sum()) for s, g in stab.groupby("scenario")},
         "true4u_film_present": int((stab[stab.scenario == "Baseline"].true4u_slots > 0).sum()),
+        "easy_boy_top_betweenness_external": int((stab[stab.scenario == "Baseline"].easy_boy_betweenness_rank_external == 1).sum()),
+        "easy_boy_top3_betweenness_external": int((stab[stab.scenario == "Baseline"].easy_boy_betweenness_rank_external <= 3).sum()),
+        "nof_studio_betweenness_ranks_external": stab[stab.scenario == "Baseline"].nof_studio_betweenness_rank_external.tolist(),
     }
     print(stab.to_string())
     json.dump(summary, open(RES / "summary.json", "w"), ensure_ascii=False, indent=2)

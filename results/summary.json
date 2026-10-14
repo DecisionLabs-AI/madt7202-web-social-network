@@ -28,6 +28,15 @@
       "A (+OSx)": 3,
       "Baseline": 3
     },
-    "true4u_film_present": 5
+    "true4u_film_present": 5,
+    "easy_boy_top_betweenness_external": 4,
+    "easy_boy_top3_betweenness_external": 5,
+    "nof_studio_betweenness_ranks_external": [
+      18,
+      8,
+      14,
+      281,
+      349
+    ]
   }
 }

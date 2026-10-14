@@ -39,6 +39,8 @@ collected; a fresh pull writes to `data/fresh/` and will not reproduce the repor
 6. **Stability over time:** the whole graph and bridge ranking re-run on every daily snapshot
    (`results/daily_stability.csv`). The ≥ 80%-of-snapshots bar, the anchor, window and channel-merge tests,
    and the exclusion of TVB Thailand (a broadcaster that surfaced on 13 Oct) were added after first results.
+7. **Standard-metric check:** betweenness centrality of channels in the keyword–channel bipartite graph,
+   ranked among external creators (True-owned and OSx excluded), on every snapshot.
 5. **Scenarios:** Baseline counts True-owned channels only; Scenario A also counts OSx Network creators
    zbing z. and SpriteDer SPD, whose channel descriptions list True Digital / Online Station contacts.
 
@@ -63,7 +65,7 @@ The figure needs a Thai-capable font (Thonburi on macOS, or Loma / Noto Sans Tha
 | Top five creators by views, OSx flag | `results/top5_by_views.csv` |
 | Bridge ranking and every robustness test (incl. anchor removal, windows), Baseline and A | `results/robustness.csv`, `results/bridges_baseline.csv` |
 | Keywords and communities of easy boy, Nof studio, เรียงเรื่องลั่น, พ่อลูกเล่นเกม | `results/shortlist_detail.csv` |
-| Daily stability: easy boy #1 in 4/5 snapshots (5/5 with OSx), Nof studio a bridge in 3/5 | `results/daily_stability.csv`, `results/summary.json` |
+| Daily stability: easy boy #1 in 4/5 snapshots (5/5 with OSx), Nof studio a bridge in 3/5; betweenness: easy boy top external creator in 4/5 (top 3 in 5/5), Nof studio 8th–349th | `results/daily_stability.csv`, `results/summary.json` |
 | Section 5 figure | `figures/network.png` |
 
 ## Layout
