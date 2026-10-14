@@ -20,7 +20,7 @@ neighbourhoods adjacent to those where True-owned channels are visible, which on
 | Search | Each keyword: `regionCode=TH`, `relevanceLanguage=th`, top 50, videos published 13 Jul – 11 Oct 2026 |
 | Snapshot | Collected 11 Oct 2026: 2,000 search rows, 1,697 videos, 1,294 channels (`data/`) |
 
-Daily re-pulls of the same 40 keywords (`src/collect_daily.py`, 11–14 Oct) are in `data/daily/` and test
+Daily re-pulls of the same 40 keywords (`src/collect_daily.py`, 11–14 Oct; collection has ended) are in `data/daily/` and test
 whether the result holds over time. Search rankings change daily, so the analysis runs on saved snapshots. `src/collect.py` shows how it was
 collected; a fresh pull writes to `data/fresh/` and will not reproduce the report exactly.
 
@@ -36,13 +36,13 @@ collected; a fresh pull writes to `data/fresh/` and will not reproduce the repor
 4. **Robustness:** re-uploads deduplicated, without "สนุก", ≥ 2 and ≥ 3 videos per creator–keyword edge,
    leave-one-video-out, anchor removal (each True-owned result, then both uploads of the True4U film),
    and top-10 / top-50 windows against the top-25 base.
+5. **Scenarios:** Baseline counts True-owned channels only; Scenario A also counts OSx Network creators
+   zbing z. and SpriteDer SPD, whose channel descriptions list True Digital / Online Station contacts.
 6. **Stability over time:** the whole graph and bridge ranking re-run on every daily snapshot
    (`results/daily_stability.csv`). The ≥ 80%-of-snapshots bar, the anchor, window and channel-merge tests,
    and the exclusion of TVB Thailand (a broadcaster that surfaced on 13 Oct) were added after first results.
 7. **Standard-metric check:** betweenness centrality of channels in the keyword–channel bipartite graph,
    ranked among external creators (True-owned and OSx excluded), on every snapshot.
-5. **Scenarios:** Baseline counts True-owned channels only; Scenario A also counts OSx Network creators
-   zbing z. and SpriteDer SPD, whose channel descriptions list True Digital / Online Station contacts.
 
 ## Run
 
@@ -81,6 +81,6 @@ report/      the one-page report (PDF)
 
 ## Limitations
 
-Search results only (not Home or Recommended feeds); a one-day ranking that favours recent uploads; co-ranking
+Search results only (not Home or Recommended feeds); five snapshots over four days (11–14 Oct), so stability is short-term only, and search favours recent uploads; co-ranking
 is not a shared audience; group affiliation is read from public channel descriptions, so private MCN contracts
 are not observed.
